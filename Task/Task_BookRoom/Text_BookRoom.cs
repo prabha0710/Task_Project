@@ -33,49 +33,49 @@
 				return "Not enough adults to fill all rooms.";
 			}
 
-			string result = "";
-			int roomCount = 1;
+			string strresult = "";
+			int nroomCount = 1;
 
-			while(roomCount <= nRooms)
+			while(nroomCount <= nRooms)
 			{
-				int adultsInRoom = 0;
-				int childrenInRoom = 0;
+				int nadultsRoomCount = 0;
+				int nchildrenRoomCount = 0;
 
 				
 				if(nAdult > 0)
 				{
-					adultsInRoom = 1; 
+					nadultsRoomCount = 1; 
 					nAdult--;
 				}
 
 				
-				int remainingCapacity = 4 - adultsInRoom;
+				int nChildrenNeedCount = 4 - nadultsRoomCount;
 
 				
-				while(remainingCapacity > 0 && nChildren > 0)
+				while(nChildrenNeedCount > 0 && nChildren > 0)
 				{
-					childrenInRoom++;
+					nchildrenRoomCount++;
 					nChildren--;
-					remainingCapacity--;
+					nChildrenNeedCount--;
 				}
 
 				
-				while(remainingCapacity > 0 && nAdult > 0)
+				while(nChildrenNeedCount > 0 && nAdult > 0)
 				{
-					adultsInRoom++;
+					nadultsRoomCount++;
 					nAdult--;
-					remainingCapacity--;
+					nChildrenNeedCount--;
 				}
 
 				
-				nTotalGuest -= (adultsInRoom + childrenInRoom);
+				nTotalGuest -= (nadultsRoomCount + nchildrenRoomCount);
 
 				
-				result += $"Room {roomCount}: Adults {adultsInRoom} - Children {childrenInRoom}\n";
-				roomCount++;
+				strresult += $"Room {nroomCount}: Adults {nadultsRoomCount} - Children {nchildrenRoomCount}\n";
+				nroomCount++;
 			}
 
-			return result;
+			return strresult;
 		}
 	}
 }
